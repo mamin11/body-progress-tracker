@@ -17,6 +17,16 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function home()
+    {
+        $homeChart = new WeightChart;
+        $homeChart->labels(['January', 'February', 'March', 'April', 'May']);
+        $homeChart->dataset('Weight Data', 'bar', [100, 90, 80, 70, 60])
+        ->backgroundColor('rgba(68, 86, 105, 0.8)');
+
+        return view('Welcome', compact('homeChart'));
+    }
+
     public function chartData()
     {
 
@@ -235,17 +245,17 @@ class Controller extends BaseController
 
         $theWaistChart = new WeightChart;
         $theWaistChart->labels($waistLabels);
-        $theWaistChart->dataset('Waist Data', 'bar', $waistCount)
+        $theWaistChart->dataset('Waist Data', 'line', $waistCount)
         ->backgroundColor('#2980b9');
 
         $theChestChart = new WeightChart;
         $theChestChart->labels($chestLabels);
-        $theChestChart->dataset('Chest Data', 'bar', $chestCount)
+        $theChestChart->dataset('Chest Data', 'line', $chestCount)
         ->backgroundColor('#f05252');
 
         $theNeckChart = new WeightChart;
         $theNeckChart->labels($neckLabels);
-        $theNeckChart->dataset('Neck Data', 'bar', $neckCount)
+        $theNeckChart->dataset('Neck Data', 'line', $neckCount)
         ->backgroundColor('#8e44ad');
 
         $theUpperArmChart = new WeightChart;
