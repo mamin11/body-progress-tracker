@@ -14,21 +14,25 @@
             </div>
 
                 <div class="my-10 flex justify-center">
-                    <div class="w-1/2" style="height: 300px;">
+                    <div class="w-full" style="height: 300px;">
                         {!! $theWeightChart->container() !!}  
                     </div>
+                </div>
 
-                    <div class="w-1/2" style="height: 300px;">
+                <div class="my-10 flex justify-center">
+                    <div class="w-full" style="height: 300px;">
                         {!! $theWaistChart->container() !!}  
                     </div>
                 </div>
 
                 <div class="my-10 flex justify-center">
-                    <div class="w-1/2 sm:w-full xs:w-full" style="height: 300px;">
+                    <div class="w-full sm:w-full xs:w-full" style="height: 300px;">
                         {!! $theChestChart->container() !!}  
                     </div>
+                </div>
 
-                    <div class="w-1/2 sm:w-full xs:w-full" style="height: 300px;">
+                <div class="my-10 flex justify-center">
+                    <div class="w-full sm:w-full xs:w-full" style="height: 300px;">
                         {!! $theNeckChart->container() !!}  
                     </div>
                 </div>
