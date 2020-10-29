@@ -27,21 +27,14 @@
                             <!-- Article -->
                             <article class="overflow-hidden rounded-lg shadow-lg bg-app-color">
 
-                                <h4 class="text-center text-white py-2 uppercase">{{$measurement->getStatistic()->name}}</h4>
+                                <h4 class="text-center text-white py-2 uppercase">{{$measurement->getStatistic()->name . ' ('.$measurement->getStatistic()->getStatisticUnits() .')' }}</h4>
 
                                 <div class="w-full max-w-xs flex justify-center">
                                     <div class="content-center rounded px-8 pt-6 pb-8 mb-4">
                                         <div class="mb-4">
                                         <input type="hidden" name="measurement_id" value="{{$measurement->measurement_id}}">
                                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="text" name="val{{$measurement->getStatistic()->id}}"  value="{{$measurement->value}}">
-                                        </div>
-
-                                        {{-- <div class="flex justify-center flex-wrap mx-auto py-4">
-                                            <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-6 rounded-full" type="button">
-                                            Save
-                                            </button>
-                                        </div> --}}
-
+                                    </div>
                                     </div>
 
                                     </div>

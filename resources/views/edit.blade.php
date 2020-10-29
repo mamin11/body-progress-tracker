@@ -23,12 +23,13 @@
                 </tr>
             </thead>
             <tbody class="bg-white">
+                <?php $n=1; ?>
                 @foreach ($measurements as $measurement)                    
                 <tr>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
                         <div class="flex items-center">
                             <div>
-                            <div class="text-sm leading-5 text-gray-800">#{{$measurement->id}}</div>
+                            <div class="text-sm leading-5 text-gray-800">#{{$n}}</div>
                             </div>
                         </div>
                     </td>
@@ -42,6 +43,7 @@
                     <a href="/delete/{{$measurement->id}}"><button class="px-5 py-2 bg-red-600 border text-white rounded transition duration-300 hover:bg-red-700 hover:text-white focus:outline-none">Delete</button></a>
                     </td>
                 </tr>
+                <?php $n++; ?>
                 @endforeach
 
             </tbody>

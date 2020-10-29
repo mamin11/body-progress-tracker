@@ -22,8 +22,41 @@ class InsertController extends Controller
 
     public function save(Request $request)
     {
+
+        $customMessages = [
+            'required' => 'Please enter :attribute '
+        ];
+
+        $rules = [
+            '0' => 'null',
+            '1' => 'required | Integer',
+            '2' => 'required | Integer',
+            '3' => 'required | Integer',
+            '4' => 'required | Integer',
+            '5' => 'required | Integer',
+            '6' => 'required | Integer',
+            '7' => 'required | Integer',
+            '8' => 'required | Integer',
+            '9' => 'required | Integer',
+            '10' => 'required | Integer',
+            '11' => 'required | Integer',
+            '12' => 'required | Integer'
+        ];
+
+        $validatedData = $request->validate($rules, $customMessages);
+        //validate
+        // for($i=1;$i<=12; $i++)
+        // {
+        //     $validatedData = $request->validate([
+        //         $i => 'required'
+        //     ]);
+        // }
+        
+        //find neccessary atributes 
         $input = $request->all();
         $user_id = Auth::user()->id;
+
+
         //insert into measurements
         //one record created for the day, ideally
         $measurements = measurement::create([
@@ -51,7 +84,7 @@ class InsertController extends Controller
 
         return back();
         
-        // var_dump($stat_ids);
+        // var_dump($input);
     }
 
     public function edit()

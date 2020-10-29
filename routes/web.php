@@ -18,19 +18,27 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-Route::get('insert', 'App\Http\Controllers\InsertController@index')->name('insert');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'App\Http\Controllers\Controller@chartData')->name('dashboard');
 
-Route::post('save', 'App\Http\Controllers\InsertController@save')->name('save');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/chest', 'App\Http\Controllers\Controller@chest')->name('dashboard/chest');
 
-Route::get('edit', 'App\Http\Controllers\InsertController@edit')->name('edit');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/insert', 'App\Http\Controllers\InsertController@index')->name('insert');
 
-Route::get('edit/{id}', 'App\Http\Controllers\InsertController@editWithId')->name('editWithId');
+Route::get('insert', 'App\Http\Controllers\InsertController@index')->name('insert')->middleware('auth');
 
-Route::post('editSubmit', 'App\Http\Controllers\InsertController@editSubmit');
+Route::post('save', 'App\Http\Controllers\InsertController@save')->name('save')->middleware('auth');
 
-Route::get('delete/{id}', 'App\Http\Controllers\InsertController@delete')->name('delete');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/save', 'App\Http\Controllers\InsertController@save')->name('save');
+
+Route::get('edit', 'App\Http\Controllers\InsertController@edit')->name('edit')->middleware('auth');
+
+Route::get('edit/{id}', 'App\Http\Controllers\InsertController@editWithId')->name('editWithId')->middleware('auth');
+
+Route::post('editSubmit', 'App\Http\Controllers\InsertController@editSubmit')->middleware('auth');
+
+Route::get('delete/{id}', 'App\Http\Controllers\InsertController@delete')->name('delete')->middleware('auth');
 

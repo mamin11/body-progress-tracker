@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\measurement;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class measured_stat extends Model
 {
@@ -16,4 +17,11 @@ class measured_stat extends Model
         $statistics = statistic_type::get()->where('id', $this->stat_type_id)->first();
         return $statistics;
     }
+
+    public function getUserId()
+    {
+        $measurement = measurement::get()->where('id', $this->measurement_id)->first();
+        return $user = $measurement->user_id;
+    }
+
 }
