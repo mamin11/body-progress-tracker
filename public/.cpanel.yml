@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/mamindes/progress.theoneamin.com/
-    - /bin/cp -R * $DEPLOYPATH
