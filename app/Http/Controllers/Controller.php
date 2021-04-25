@@ -24,7 +24,7 @@ class Controller extends BaseController
         $homeChart->dataset('Weight Data', 'bar', [100, 90, 80, 70, 60])
         ->backgroundColor('rgba(68, 86, 105, 0.8)');
 
-        return view('Welcome', compact('homeChart'));
+        return view('welcome', compact('homeChart'));
     }
 
     public function chartData()
